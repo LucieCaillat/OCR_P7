@@ -22,7 +22,7 @@
       <!--TAG CONTAINER-->
       <div class="tag--container">
 
-        <button class="tag ingredient"> 
+        <!--<button class="tag ingredient"> 
           Lait de coco <i class="fa-regular fa-circle-xmark"></i>          
         </button>
 
@@ -40,7 +40,7 @@
 
         <button class="tag ingredient"> 
           Oeuf <i class="fa-regular fa-circle-xmark"></i>          
-        </button>
+        </button>-->
 
         <button class="tag appliance"> 
           Batteur <i class="fa-regular fa-circle-xmark"></i>          
@@ -48,65 +48,82 @@
 
       </div>
       <!--THEMATIC SEARCH-->
-      <div class="thematic-search--container">
+      <div class="topic--container">
         <!--ingredients search-->
-        <div class="thematic-search--card ingredient">
-          <div class="thematic-search--header">
+        
+        <div class="topic--card ingredient topic--buttons">
+          <button class="topic--input-button">Ingredients</button>
+          <button class="topic--extend-button"><i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+
+        <div class="topic--card ingredient topic--input">
+          <div class="topic--card--header">
             <form action="">
-              <input class="ingredient" type="search" placeholder="Ingredients">
+              <input class="ingredient" type="seach">              
             </form>
-            <button class="thematic-search--extend-button"><i class="fa-solid fa-chevron-down"></i></button>
+            <button class="topic--extend-button">
+              <i class="fa-solid fa-chevron-up"></i>
+            </button>
           </div>
-          <div class="thematic-search--list">
-            <button class="thematic-search--choice">Ingredient</button>
-            <button class="thematic-search--choice">Ingredient</button>
-            <button class="thematic-search--choice">Ingredient</button>
-            <button class="thematic-search--choice">Ingredient</button>
-            <button class="thematic-search--choice">Ingredient</button>
-            <button class="thematic-search--choice">Ingredient</button>
-            <button class="thematic-search--choice">Ingredient</button>
-            <button class="thematic-search--choice">Ingredient</button>
+          <div class="topic--input--sugestion-list">
+            <button class="sugestion">cousou</button>
+            <button class="sugestion">cour</button>
+            <button class="sugestion">coutr</button>            
+          </div>
+        </div>  
+        
+
+        <div class="topic--card ingredient topic--list">
+          <div class="topic--card--header">
+            <form action="">
+              <input class="ingredient" type="seach" placeholder="Rechercher un ingédient">              
+            </form>
+            <button class="topic--extend-button">
+              <i class="fa-solid fa-chevron-up"></i>
+            </button>
+          </div>
+          <div class="topic--list--sugestion">
+            <button class="topic--list--item">Lait de coco</button>
+            <button class="topic--list--item">Sucre</button>
+            <button class="topic--list--item">Carotte</button>
+            <button class="topic--list--item">Carotte</button>
+            <button class="topic--list--item">Moutarde de Dijon</button>
+            <button class="topic--list--item">Concombre</button>
+            <button class="topic--list--item">Lait de coco</button>
+            <button class="topic--list--item">Oeuf dur</button>
+            <button class="topic--list--item">Huile d'olive</button>
+            <button class="topic--list--item">Oignon</button>
+            <button class="topic--list--item">Pâte feuilletée</button>
+            <button class="topic--list--item">Concombre</button>
+            <button class="topic--list--item">Lait de coco</button>
+            <button class="topic--list--item">Sucre</button>
+            <button class="topic--list--item">Carotte</button>
+            <button class="topic--list--item">Carotte</button>
+            <button class="topic--list--item">Moutarde de Dijon</button>
+            <button class="topic--list--item">Concombre</button>
+            <button class="topic--list--item">Lait de coco</button>
+            <button class="topic--list--item">Oeuf dur</button>
+            <button class="topic--list--item">Huile d'olive</button>
+            <button class="topic--list--item">Oignon</button>
+            <button class="topic--list--item">Pâte feuilletée</button>
+            <button class="topic--list--item">Concombre</button>               
           </div>
         </div>
+        
         <!--appliances search-->
-        <div class="thematic-search--card appliance">
-          <div class="thematic-search--header">
-            <form action="">
-              <input class="appliance" type="search" placeholder="Appareils">
-            </form>
-            <button class="thematic-search--extend-button"><i class="fa-solid fa-chevron-down"></i></button>
-          </div>
-          
-          <div class="thematic-search--list">
-            <button class="thematic-search--choice">appliance</button>
-            <button class="thematic-search--choice">appliance</button>
-            <button class="thematic-search--choice">appliance</button>
-            <button class="thematic-search--choice">appliance</button>
-            <button class="thematic-search--choice">appliance</button>
-            <button class="thematic-search--choice">appliance</button>
-            <button class="thematic-search--choice">appliance</button>
-            <button class="thematic-search--choice">appliance</button>
-          </div>
+
+        <div class="topic--card appliance topic--buttons">
+          <button class="topic--input-button">Ingredients</button>
+          <button class="topic--extend-button"><i class="fa-solid fa-chevron-down"></i></button>
         </div>
+        
         <!--ustensils search-->
-        <div class="thematic-search--card ustensil">
-          <div class="thematic-search--header">
-            <form action="">
-              <input class="ustensil" type="search" placeholder="Ustensils">
-            </form>
-            <button class="thematic-search--extend-button"><i class="fa-solid fa-chevron-down"></i></button>
-          </div>
-          <div class="thematic-search--list">
-            <button class="thematic-search--choice">Ustensils</button>
-            <button class="thematic-search--choice">Ustensils</button>
-            <button class="thematic-search--choice">Ustensils</button>
-            <button class="thematic-search--choice">Ustensils</button>
-            <button class="thematic-search--choice">Ustensils</button>
-            <button class="thematic-search--choice">Ustensils</button>
-            <button class="thematic-search--choice">Ustensils</button>
-            <button class="thematic-search--choice">Ustensils</button>
-          </div>
+        <div class="topic--card ustensil topic--buttons">
+          <button class="topic--input-button">Ingredients</button>
+          <button class="topic--extend-button"><i class="fa-solid fa-chevron-down"></i></button>
         </div>
+        
+
       </div>
       <!--RECIPE GALLERY-->
       <div class="recipe--gallery">

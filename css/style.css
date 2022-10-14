@@ -78,33 +78,99 @@ header img{
   margin-left: 13px;
 }
 
-/*THEMATIC SEARCH*/
-.thematic-search--container{
+/*SEARCH BY TOPIC*/
+.topic--container{
   display: flex;
   flex-wrap: wrap;
+  max-height: 150px;
 }
-.thematic-search--card{
+.topic--card{
   border-radius: 5px;
   margin-right: 20px; 
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
+  padding: 15px;
+  z-index: 2;
 }
-.thematic-search--header{
-  display: flex;  
-}
-.thematic-search--header input{
+.topic--card button{
   color: #FFFFFF;
-  font-weight: 700;
-  width: 100px;
-  font-size: 18px;
-  margin: 24px ;
 }
-.thematic-search--header i{
-  color: #FFFFFF;  
-  font-size: 18px;
-  margin: 18px ;
-}
-.thematic-search--list{
+  /*topic--buttons*/
+.ingredient.topic--buttons{
   display: none;
+}
+.appliance.topic--buttons{
+  display: flex;
+}
+.ustensil.topic--buttons{
+  display: flex;
+}
+
+.topic--buttons{
+  align-items: center;
+  justify-content: space-between;
+  width: 140px;
+  height: 40px;  
+}
+.topic--buttons button{
+  font-weight: 700;
+  font-size: 18px;
+}
+  /*topic--input*/
+.ingredient.topic--input{
+  display: none;
+}
+.appliance.topic--input{
+  display: none;
+}
+.ustensil.topic--input{
+  display: none;
+}
+.topic--card--header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.topic--card--header input{
+  font-weight: 700;
+  font-size: 18px;
+  color: #FFFFFF; 
+}
+.topic--input input{
+  width: 165px;
+}
+.topic--extend-button{
+  font-size: 18px;
+}
+.topic--input--sugestion-list button{
+  display: block;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+  /*topic--list*/
+.ingredient.topic--list{
+  display: block;
+}
+.appliance.topic--list{
+  display: none;
+}
+.ustensil.topic--list{
+  display: none;
+}
+.topic--list{
+  max-width: 660px;
+}
+.topic--list--sugestion{
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 75px;
+  padding-top: 25px;
+}
+.topic--list--item{
+  width: 170px;
+  text-align: left;
+  font-size: 18px;
+  margin: 5px 0;
 }
 
 /*RECIPE-CARD*/
