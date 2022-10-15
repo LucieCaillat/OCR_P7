@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"> 
     <title>Les petits plats</title>
   </head>
   <body>
@@ -22,29 +22,9 @@
       <!--TAG CONTAINER-->
       <div class="tag--container">
 
-        <!--<button class="tag ingredient"> 
+        <!-- <button class="tag ingredient"> 
           Lait de coco <i class="fa-regular fa-circle-xmark"></i>          
-        </button>
-
-        <button class="tag ingredient"> 
-          Oeuf <i class="fa-regular fa-circle-xmark"></i>          
-        </button>
-
-        <button class="tag appliance"> 
-          Batteur <i class="fa-regular fa-circle-xmark"></i>          
-        </button>
-
-        <button class="tag ingredient"> 
-          Lait de coco <i class="fa-regular fa-circle-xmark"></i>          
-        </button>
-
-        <button class="tag ingredient"> 
-          Oeuf <i class="fa-regular fa-circle-xmark"></i>          
-        </button>-->
-
-        <button class="tag appliance"> 
-          Batteur <i class="fa-regular fa-circle-xmark"></i>          
-        </button>
+        </button> -->
 
       </div>
       <!--THEMATIC SEARCH-->
@@ -66,9 +46,7 @@
             </button>
           </div>
           <div class="topic--input--sugestion-list">
-            <button class="sugestion">cousou</button>
-            <button class="sugestion">cour</button>
-            <button class="sugestion">coutr</button>            
+            <!-- <button class="sugestion">cousou</button>                       -->
           </div>
         </div>  
         
@@ -83,44 +61,79 @@
             </button>
           </div>
           <div class="topic--list--sugestion">
-            <button class="topic--list--item">Lait de coco</button>
-            <button class="topic--list--item">Sucre</button>
-            <button class="topic--list--item">Carotte</button>
-            <button class="topic--list--item">Carotte</button>
-            <button class="topic--list--item">Moutarde de Dijon</button>
-            <button class="topic--list--item">Concombre</button>
-            <button class="topic--list--item">Lait de coco</button>
-            <button class="topic--list--item">Oeuf dur</button>
-            <button class="topic--list--item">Huile d'olive</button>
-            <button class="topic--list--item">Oignon</button>
-            <button class="topic--list--item">Pâte feuilletée</button>
-            <button class="topic--list--item">Concombre</button>
-            <button class="topic--list--item">Lait de coco</button>
-            <button class="topic--list--item">Sucre</button>
-            <button class="topic--list--item">Carotte</button>
-            <button class="topic--list--item">Carotte</button>
-            <button class="topic--list--item">Moutarde de Dijon</button>
-            <button class="topic--list--item">Concombre</button>
-            <button class="topic--list--item">Lait de coco</button>
-            <button class="topic--list--item">Oeuf dur</button>
-            <button class="topic--list--item">Huile d'olive</button>
-            <button class="topic--list--item">Oignon</button>
-            <button class="topic--list--item">Pâte feuilletée</button>
-            <button class="topic--list--item">Concombre</button>               
+            <!-- <button class="topic--list--item">Lait de coco</button>                        -->
           </div>
         </div>
         
         <!--appliances search-->
 
         <div class="topic--card appliance topic--buttons">
-          <button class="topic--input-button">Ingredients</button>
+          <button class="topic--input-button">Appareils</button>
           <button class="topic--extend-button"><i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+
+        <div class="topic--card appliance topic--input">
+          <div class="topic--card--header">
+            <form action="">
+              <input class="appliance" type="seach">              
+            </form>
+            <button class="topic--extend-button">
+              <i class="fa-solid fa-chevron-up"></i>
+            </button>
+          </div>
+          <div class="topic--input--sugestion-list">
+            <!-- <button class="sugestion">cousou</button> -->
+          </div>
+        </div>  
+        
+
+        <div class="topic--card appliance topic--list">
+          <div class="topic--card--header">
+            <form action="">
+              <input class="appliance" type="seach" placeholder="Rechercher un ingédient">              
+            </form>
+            <button class="topic--extend-button">
+              <i class="fa-solid fa-chevron-up"></i>
+            </button>
+          </div>
+          <div class="topic--list--sugestion">
+            <!-- <button class="topic--list--item">Lait de coco</button> -->
+          </div>
         </div>
         
         <!--ustensils search-->
         <div class="topic--card ustensil topic--buttons">
-          <button class="topic--input-button">Ingredients</button>
+          <button class="topic--input-button">Ustensiles</button>
           <button class="topic--extend-button"><i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+
+        <div class="topic--card ustensil topic--input">
+          <div class="topic--card--header">
+            <form action="">
+              <input class="ustensil" type="seach">              
+            </form>
+            <button class="topic--extend-button">
+              <i class="fa-solid fa-chevron-up"></i>
+            </button>
+          </div>
+          <div class="topic--input--sugestion-list">
+            <!-- <button class="sugestion">cousou</button>-->
+          </div>
+        </div>  
+        
+
+        <div class="topic--card ustensil topic--list">
+          <div class="topic--card--header">
+            <form action="">
+              <input class="ustensil" type="seach" placeholder="Rechercher un ingédient">              
+            </form>
+            <button class="topic--extend-button">
+              <i class="fa-solid fa-chevron-up"></i>
+            </button>
+          </div>
+          <div class="topic--list--sugestion">
+            <!-- <button class="topic--list--item">Lait de coco</button>                          -->
+          </div>
         </div>
         
 

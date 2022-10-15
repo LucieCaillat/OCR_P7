@@ -1,6 +1,8 @@
 /*General*/
 body{
   font-size: 18px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
 }
 .container{
   width: 86%;
@@ -83,6 +85,7 @@ header img{
   display: flex;
   flex-wrap: wrap;
   max-height: 150px;
+  margin-top: 5px;
 }
 .topic--card{
   border-radius: 5px;
@@ -96,7 +99,7 @@ header img{
 }
   /*topic--buttons*/
 .ingredient.topic--buttons{
-  display: none;
+  display: flex;
 }
 .appliance.topic--buttons{
   display: flex;
@@ -149,7 +152,7 @@ header img{
 
   /*topic--list*/
 .ingredient.topic--list{
-  display: block;
+  display: none;
 }
 .appliance.topic--list{
   display: none;
@@ -186,7 +189,6 @@ header img{
   background: #E7E7E7;
   width: 380px;
   height: 364px;
-  margin-top: 50px;
 }
 .recipe-card--img{
   background: #C7BEBE;
