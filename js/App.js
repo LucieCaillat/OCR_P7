@@ -1,3 +1,30 @@
+class App {
+  constructor() {
+    this.$recipeGallery = document.querySelector('.recipe--gallery')
+    this.recipesData = recipes;
+  }
+
+  main() {
+    this.$recipeGallery.innerHTML = ""
+    this.recipesData.forEach(recipe => {
+      const Template = new RecipeCard(recipe)
+      this.$recipeGallery.appendChild(Template.createRecipeCard())        
+    })    
+  }
+}
+
+const app = new App()
+app.main()
+
+
+
+
+
+
+
+
+
+
 function openTopic(type){
   const topicCardButton = document.querySelector(`.${type}.topic-card__button`);
   const topicCardSearch = document.querySelector(`.${type}.topic-card__search`);
