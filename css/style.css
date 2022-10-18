@@ -13,6 +13,7 @@ body{
 button{
   border: none;
   background: none;
+  cursor: pointer;
 }
 input{
   border: none;
@@ -34,7 +35,9 @@ input:focus{
 header img{
   display: block;
   margin-left: auto;
-  margin-right: auto 
+  margin-right: auto; 
+  width:80%;
+  max-width: 512px;
 }
 
 /*SEARCH*/
@@ -84,111 +87,88 @@ header img{
 .topic--container{
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
   max-height: 150px;
   margin-top: 5px;
 }
-.topic--card{
+.topic-card{
   border-radius: 5px;
-  margin-right: 20px; 
   margin-bottom: 20px;
   padding: 15px;
   z-index: 2;
 }
-.topic--card button{
+.topic-card, .topic-card button, .topic-card input{
   color: #FFFFFF;
+  font-size: 18px;
 }
-  /*topic--buttons*/
-.ingredient.topic--buttons{
-  display: flex;
-}
-.appliance.topic--buttons{
-  display: flex;
-}
-.ustensil.topic--buttons{
-  display: flex;
-}
+  /*topic Card BUTTON*/
 
-.topic--buttons{
+.topic-card__button{
+  display: flex;
   align-items: center;
   justify-content: space-between;
   width: 140px;
-  height: 40px;  
-}
-.topic--buttons button{
-  font-weight: 700;
-  font-size: 18px;
-}
-  /*topic--input*/
-.ingredient.topic--input{
+  height: 40px; 
+  font-weight: 700; 
+} 
+  /*Topic Card SEARCH*/
+.topic-card__search{
   display: none;
+  min-width: 223px;
+  max-width: 53.8%;
 }
-.appliance.topic--input{
-  display: none;
-}
-.ustensil.topic--input{
-  display: none;
-}
-.topic--card--header{
+
+.topic-card--header{
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.topic--card--header input{
+.topic-card--header input{
   font-weight: 700;
-  font-size: 18px;
-  color: #FFFFFF; 
+  width: 100%; 
 }
-.topic--input input{
-  width: 165px;
+.topic-card--header input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 1;
 }
-.topic--extend-button{
-  font-size: 18px;
-}
-.topic--input--sugestion-list button{
-  display: block;
-  font-size: 18px;
-  margin-top: 10px;
-}
-
-  /*topic--list*/
-.ingredient.topic--list{
-  display: none;
-}
-.appliance.topic--list{
-  display: none;
-}
-.ustensil.topic--list{
-  display: none;
-}
-.topic--list{
-  max-width: 660px;
-}
-.topic--list--sugestion{
+.topic-card--sugestion-box{
   display: flex;
-  flex-wrap: wrap;
-  column-gap: 75px;
+  flex-wrap: wrap;  
+  column-gap: 8%; 
   padding-top: 25px;
 }
-.topic--list--item{
-  width: 170px;
+.topic-card--sugestion{
   text-align: left;
-  font-size: 18px;
+  width: 28%;
   margin: 5px 0;
+}
+
+@media screen and (max-width: 1031px) {
+  .topic--container{
+    max-height: none;
+  }
+  .topic-card__search{
+    max-width: 100%;
+    width: 100%;   
+  }
+}
+@media screen and (max-width: 550px) {
+  .topic-card--sugestion{
+    width: 46%;
+  }
 }
 
 /*RECIPE-CARD*/
 .recipe--gallery{
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fill, 380px);
-  grid-gap: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px 4.1%;
   width: 100%;
-  height: auto;
 }
 .recipe-card{
   background: #E7E7E7;
-  width: 380px;
-  height: 364px;
+  width: 30.6%;
+  min-height: 364px;
 }
 .recipe-card--img{
   background: #C7BEBE;
@@ -201,10 +181,7 @@ header img{
   align-items: center;
   margin: 0 20px;
 }
-.recipe-card--header h2{
-  font-size: 18px;
-}
-.recipe-card--time{
+.recipe-card--header h2, .recipe-card--time{
   font-size: 18px;
   font-weight: 700;
 }
@@ -231,6 +208,22 @@ header img{
   width: 50%;
 }
 
+@media screen and (max-width: 1200px) {
+  .recipe--gallery{    
+    justify-content: center;
+  }
+  .recipe-card{
+    width: 100%;
+    max-width: 450px;
+    min-height: 400px;
+  }
+  .recipe-card--header h2, .recipe-card--time{
+    font-size: 20px;
+  }
+  .recipe-card--main{
+    font-size: 15px;
+  }
+}
 
 
 
