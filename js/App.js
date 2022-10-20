@@ -2,14 +2,34 @@ class App {
   constructor() {
     this.$recipeGallery = document.querySelector('.recipe--gallery')
     this.recipesData = recipes;
+    this.searchBar = new SearchBarFilter;
   }
 
-  main() {
+  displayRecipes(){
     this.$recipeGallery.innerHTML = ""
     this.recipesData.forEach(recipe => {
       const Template = new RecipeCard(recipe)
       this.$recipeGallery.appendChild(Template.createRecipeCard())        
     })    
+  }
+
+  eventSearchBar(){
+    const app = this    
+    app.searchBar.$input.addEventListener("input", function(event){
+      const string = event.target.value    
+      if(string.length >= 3){
+        app.recipesData = app.searchBar.filterSearchBar(string, recipes);
+      }else{
+        app.recipesData = recipes
+      }
+      app.displayRecipes()   
+    })    
+  }
+
+  main() {
+    this.displayRecipes();
+    this.eventSearchBar();
+    
   }
 }
 
