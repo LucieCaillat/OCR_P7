@@ -178,12 +178,15 @@ header img{
 .recipe-card--header{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin: 0 20px;
 }
 .recipe-card--header h2, .recipe-card--time{
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 700;  
+}
+.recipe-card--time{
+  white-space: nowrap;
 }
 .recipe-card--time i{
   margin: 0 7px;
