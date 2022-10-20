@@ -1,6 +1,9 @@
 class TopicCard {
   constructor(type){
     this._type = type;
+    this.$input = document.querySelector(`.${this._type} input`)
+    this.tagArray = []
+    this.filter = new Filter()
   }
 
   formatList(array){
@@ -36,13 +39,31 @@ class TopicCard {
       console.log(`sugestionList: ${this._type} is not correct`)
     }
   }
-  creatTags(){
-    const items = this.sugestionList(this._type)
-    items.forEach(item => new Tag(item, this._type).createtopicSugestion())
+  
 
+  eventInput(){
+    let topicCard = this
+
+    topicCard.$input.addEventListener("input", function(event){      
+      const string = event.target.value    
+      topicCard.tagArray.forEach(function (tag){
+        if(topicCard.filter.isInSentence(string, tag._name)){
+          tag.isDisplay = true
+        } else{
+          tag.isDisplay = false}
+      })
+      topicCard.tagArray.forEach(tag => tag.displayTopicSugestion()) 
+    })    
+  }   
+
+  init(){
+    const items = this.sugestionList(this._type)
+    items.forEach(item => this.tagArray.push( new Tag(item, this._type)))
+    this.tagArray.forEach(tag => tag.createtopicSugestion())
+    this.eventInput()
   }  
 }
 
-new TopicCard("ingredient").creatTags()
-new TopicCard("appliance").creatTags()
-new TopicCard("ustensil").creatTags()
+new TopicCard("ingredient").init()
+new TopicCard("appliance").init()
+new TopicCard("ustensil").init()

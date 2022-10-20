@@ -5,6 +5,7 @@ class Tag {
     this.$tag = document.createElement('button')
     this.$topicSugestion = document.createElement('button')
     this.filterTag = new TagFilter().filterTag
+    this.isDisplay = true
 }
 createtopicSugestion(){
   this.$topicSugestion.classList.add("topic-card--sugestion")
@@ -21,6 +22,14 @@ clickTopicSugestion(){
     tag.createTag()
     tag.deleteTag()
   })
+}
+
+displayTopicSugestion(){
+  if(this.isDisplay === true){
+    this.$topicSugestion.style.display = "block"
+  } else{
+    this.$topicSugestion.style.display = "none"
+  }
 }
 
 createTag(){
