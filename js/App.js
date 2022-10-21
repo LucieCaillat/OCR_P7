@@ -1,78 +1,98 @@
 class App {
-  constructor() {
+  constructor(data) {
     this.$recipeGallery = document.querySelector('.recipe--gallery')
-    this.recipesData = recipes;
-    this.searchBar = new SearchBarFilter;
+    this.searchBar = new SearchBar();
+    this.ingredientTopicCard = new TopicCard("ingredient", data)
+    this.applianceTopicCard = new TopicCard("appliance", data)
+    this.ustensilTopicCard = new TopicCard("ustensil", data)
+    this.topicCards = [this.ingredientTopicCard, this.applianceTopicCard, this.ustensilTopicCard]
+    this._recipes = data;
+    
+  }  
+
+  tagFilters(data){
+    const ingredientTagsDisplay = this.ingredientTopicCard.topicSugestionButtons.filter(topicSB => topicSB.tag.isDisplay)
+    
+    const applianceTagsDisplay = this.applianceTopicCard.topicSugestionButtons.filter(topicSB => topicSB.tag.isDisplay)
+ 
+    const ustensilTagsDisplay = this.ustensilTopicCard.topicSugestionButtons.filter(topicSB => topicSB.tag.isDisplay)
+    
+    const tagsDisplay = [...ingredientTagsDisplay, ...applianceTagsDisplay, ...ustensilTagsDisplay]
+    let newData = data
+
+    tagsDisplay.forEach(topicSB => newData = topicSB.tag.filterTag.filterTag(newData) )
+    return newData
   }
 
-  displayRecipes(){
+  displayRecipes(data){
+    const tagFiltersData = this.tagFilters(data)
     this.$recipeGallery.innerHTML = ""
-    this.recipesData.forEach(recipe => {
+    tagFiltersData.forEach(recipe => {
       const Template = new RecipeCard(recipe)
       this.$recipeGallery.appendChild(Template.createRecipeCard())        
     })    
   }
 
-  eventSearchBar(){
-    const app = this    
+  $eventSearchBar(){
+    const app = this
+    const data = this._recipes    
     app.searchBar.$input.addEventListener("input", function(event){
       const string = event.target.value    
       if(string.length >= 3){
-        app.recipesData = app.searchBar.filterSearchBar(string, recipes);
+        app.displayRecipes(app.searchBar.filterSearchBar(string, data))
       }else{
-        app.recipesData = recipes
+        app.displayRecipes(data) 
       }
-      app.displayRecipes()   
     })    
+  } 
+
+  $openTopicCard(topicCardToOpen, topicCard2, topicCard3){
+      topicCardToOpen.$topicCardClose.addEventListener("click", function(){
+        topicCardToOpen.openTopicCard()
+        topicCard2.closeTopicCard()
+        topicCard3.closeTopicCard()
+      })
+    }
+
+  $clickOnTopicSugestionButton(){
+    const app = this
+    this.topicCards.forEach(topicCard =>{
+      topicCard.topicSugestionButtons.forEach(topicSB =>{
+        topicSB.$topicSugestionButton.addEventListener("click", function(){
+          topicSB.onClickTopicSugestionButton()
+          topicCard.closeTopicCard()
+          app.displayRecipes(app._recipes)
+        })
+      })
+    })
   }
 
-  main() {
-    this.displayRecipes();
-    this.eventSearchBar();
-    
+  $clickOnTag(){
+    const app = this
+    this.topicCards.forEach(topicCard =>{
+      topicCard.topicSugestionButtons.forEach(topicSB =>{
+        topicSB.tag.$tag.addEventListener("click", function(){
+          topicSB.deleteTag()
+          app.displayRecipes(app._recipes)
+        })
+      })
+    })
+  }
+
+
+  init() {
+    this.ingredientTopicCard.init();
+    this.applianceTopicCard.init();
+    this.ingredientTopicCard.init();
+    this.displayRecipes(this._recipes);
+    this.$eventSearchBar();
+    this.$openTopicCard(this.ingredientTopicCard, this.applianceTopicCard, this.ustensilTopicCard);
+    this.$openTopicCard(this.ustensilTopicCard, this.ingredientTopicCard, this.applianceTopicCard);
+    this.$openTopicCard( this.applianceTopicCard, this.ustensilTopicCard, this.ingredientTopicCard);
+    this.$clickOnTopicSugestionButton();
+    this.$clickOnTag();
   }
 }
 
-const app = new App()
-app.main()
-
-
-
-
-
-
-
-
-
-
-function openTopic(type){
-  const topicCardButton = document.querySelector(`.${type}.topic-card__button`);
-  const topicCardSearch = document.querySelector(`.${type}.topic-card__search`);
-  topicCardButton.style.display = "none";
-  topicCardSearch.style.display = "block";
-}
-
-function closeTopic(type){
-  const topicCardButton = document.querySelector(`.${type}.topic-card__button`);
-  const topicCardSearch = document.querySelector(`.${type}.topic-card__search`);
-  topicCardButton.style.display = "flex";
-  topicCardSearch.style.display = "none";
-}
-
-function topic(type, type2, type3){  
-  const topicCardOpenButton = document.querySelector(`.${type}.topic-card__button .topic-card--open-button`);  
-  const topicCardCloseButton = document.querySelector(`.${type}.topic-card__search .topic-card--close-button`);
-  
-  topicCardOpenButton.addEventListener("click", function(){
-    openTopic(type);
-    closeTopic(type2);
-    closeTopic(type3);
-  })
-  topicCardCloseButton.addEventListener("click", function(){
-    closeTopic(type);
-  })
-}
-
-topic("ingredient", "appliance", "ustensil");
-topic("appliance", "ustensil", "ingredient");
-topic("ustensil", "ingredient", "appliance");
+const app = new App(recipes)
+app.init()

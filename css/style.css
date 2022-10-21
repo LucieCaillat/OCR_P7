@@ -103,7 +103,7 @@ header img{
 }
   /*topic Card BUTTON*/
 
-.topic-card__button{
+.topic-card__close{
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -112,7 +112,7 @@ header img{
   font-weight: 700; 
 } 
   /*Topic Card SEARCH*/
-.topic-card__search{
+.topic-card__open{
   display: none;
   min-width: 223px;
   max-width: 53.8%;
@@ -147,7 +147,7 @@ header img{
   .topic--container{
     max-height: none;
   }
-  .topic-card__search{
+  .topic-card__open{
     max-width: 100%;
     width: 100%;   
   }

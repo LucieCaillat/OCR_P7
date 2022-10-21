@@ -33,12 +33,12 @@
       <div class="topic--container">
         <!--ingredients search-->
         
-        <div class="ingredient topic-card topic-card__button">
+        <div class="ingredient topic-card topic-card__close">
           <p>Ingredients</p>
           <button class="topic-card--open-button"><i class="fa-solid fa-chevron-down"></i></button>
         </div>            
 
-        <div class="ingredient topic-card topic-card__search">          
+        <div class="ingredient topic-card topic-card__open">          
           <div class="topic-card--header">
             <form action="get">
               <input class="ingredient" type="search" placeholder="Rechercher un ingédient">              
@@ -51,12 +51,12 @@
         </div>
         
         <!--appliances search-->
-        <div class="appliance topic-card topic-card__button">
+        <div class="appliance topic-card topic-card__close">
           <p>Appareils</p>
           <button class="topic-card--open-button"><i class="fa-solid fa-chevron-down"></i></button>
         </div>            
 
-        <div class="appliance topic-card topic-card__search">          
+        <div class="appliance topic-card topic-card__open">          
           <div class="topic-card--header">
             <form action="get">
               <input class="appliance" type="search" placeholder="Rechercher un appareil">              
@@ -71,12 +71,12 @@
         
         <!--ustensils search-->
 
-        <div class="ustensil topic-card topic-card__button">
+        <div class="ustensil topic-card topic-card__close">
           <p>Ustensiles</p>
           <button class="topic-card--open-button"><i class="fa-solid fa-chevron-down"></i></button>
         </div>            
 
-        <div class="ustensil topic-card topic-card__search">          
+        <div class="ustensil topic-card topic-card__open">          
           <div class="topic-card--header">
             <form action="get">
               <input class="ustensil" type="search" placeholder="Rechercher un ustensile">              
@@ -119,10 +119,14 @@
     
     <!--DATA-->
     <script src="js/data/recipes.js"></script>
+    <script src="js/data/ItemsList.js"></script>
     <script src="js/filter/Filter.js"></script>
+    <script src="js/filter/SearchBar.js"></script>
+    <script src="js/filter/TagFilter.js"></script>
     <script src="js/templates/RecipeCard.js"></script>
     <script src="js/templates/Tag.js"></script>
     <script src="js/templates/TopicCard.js"></script>
+    <script src="js/templates/TopicSugestionButton.js"></script>
     <script src="js/App.js"></script>
   </body>
 </html>
