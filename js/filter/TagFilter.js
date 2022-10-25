@@ -11,7 +11,7 @@ class TagFilter extends Filter{
     } else if(this._type === "appliance"){
       return data.filter(recipe => this.isInSentence(this._name, recipe.appliance))
     }else if(this._type === "ustensil"){
-      return data.filter(recipe => this.isInSentence(this._name, recipe.appliance.join(' ')))
+      return data.filter(recipe => this.isInSentence(this._name, recipe.ustensils.join(' ')))
     }else{
       console.log(`filterTag: ${this._type} is not correct`)
     }

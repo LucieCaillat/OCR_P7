@@ -83,7 +83,7 @@ class App {
   init() {
     this.ingredientTopicCard.init();
     this.applianceTopicCard.init();
-    this.ingredientTopicCard.init();
+    this.ustensilTopicCard.init();
     this.displayRecipes(this._recipes);
     this.$eventSearchBar();
     this.$openTopicCard(this.ingredientTopicCard, this.applianceTopicCard, this.ustensilTopicCard);
