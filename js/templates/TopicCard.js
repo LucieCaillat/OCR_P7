@@ -6,6 +6,7 @@ class TopicCard extends Filter {
     this.$topicCardOpen = document.querySelector(`.${type}.topic-card__open`)
     this.$closeButton = document.querySelector(`.${type} .topic-card--close-button`)
     this.$input = document.querySelector(`.${type} input`)
+    this.$form = document.querySelector(`.${type} form`)
     this.itemsList = new ItemsList(type, recipes).itemsList()
     this.topicSugestionButtons = []
   } 
@@ -18,6 +19,13 @@ class TopicCard extends Filter {
   closeTopicCard(){    
     this.$topicCardClose.style.display = "flex";
     this.$topicCardOpen.style.display = "none";
+    this.$form.reset()
+    this.topicSugestionButtons.forEach(topicSB =>{
+      if (topicSB.tag.isDisplay === false){
+        topicSB.isDisplay = true
+      }
+      topicSB.displayTopicSugestion()
+    })
   }
 
   $eventCloseButton(){

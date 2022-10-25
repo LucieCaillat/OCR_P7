@@ -17,7 +17,8 @@ class TopicSugestionButton{
 
   onClickTopicSugestionButton(){    
     this.$topicSugestionButton.style.display = "none"
-    this.tag.displayTag()  
+    this.tag.displayTag()
+    this.isDisplay = false  
   }
 
   deleteTag(){
