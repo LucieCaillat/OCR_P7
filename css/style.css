@@ -101,7 +101,7 @@ header img{
   color: #FFFFFF;
   font-size: 18px;
 }
-  /*topic Card BUTTON*/
+  /*topic Card CLOSE*/
 
 .topic-card__close{
   display: flex;
@@ -111,7 +111,7 @@ header img{
   height: 40px; 
   font-weight: 700; 
 } 
-  /*Topic Card SEARCH*/
+  /*Topic Card OPEN*/
 .topic-card__open{
   display: none;
   min-width: 223px;
@@ -164,6 +164,7 @@ header img{
   flex-wrap: wrap;
   gap: 50px 4.1%;
   width: 100%;
+  margin-bottom: 50px;
 }
 .recipe-card{
   background: #E7E7E7;
