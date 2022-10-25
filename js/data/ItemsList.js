@@ -12,7 +12,7 @@ class ItemsList{
   removeDuplicates(array){    
     const shortList = array.filter((item, index) => array.indexOf(item) === index).sort()
     //delete the same item with an s and without s
-    return shortList.filter((item, index) => item + "s" !== shortList[index + 1] )
+    return shortList.filter((item, index) => item !== shortList[index - 1] + "s" )
   }
 
   itemsList(){
