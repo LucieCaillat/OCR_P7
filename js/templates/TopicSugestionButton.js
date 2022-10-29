@@ -4,6 +4,7 @@ class TopicSugestionButton{
     this._type = type
     this.$topicSugestionButton = document.createElement('button')
     this.isDisplay = true
+    this.isInDisplayedRecipes = true
     this.tag = new Tag(name, type)
   }
 
@@ -26,7 +27,16 @@ class TopicSugestionButton{
     this.isDisplay = true    
   }
 
+  displayIfIsInDisplayedRecipes(){
+    if (this.isInDisplayedRecipes && this.tag.isDisplay === false){
+      this.isDisplay = true
+    }else{
+      this.isDisplay = false
+    }
+  }
+
   displayTopicSugestion(){
+    this.displayIfIsInDisplayedRecipes()
     if(this.isDisplay === true){
       this.$topicSugestionButton.style.display = "block"
     } else{

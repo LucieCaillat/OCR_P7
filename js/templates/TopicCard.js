@@ -1,13 +1,15 @@
 class TopicCard extends Filter {
-  constructor(type, recipes){
+  constructor(type, initRecipes){
     super()
-    this._type = type;
+    this._type = type
+    this._initRecipes = initRecipes
+    this.displayedRecipes = initRecipes
     this.$topicCardClose = document.querySelector(`.${type}.topic-card__close`)
     this.$topicCardOpen = document.querySelector(`.${type}.topic-card__open`)
     this.$closeButton = document.querySelector(`.${type} .topic-card--close-button`)
     this.$input = document.querySelector(`.${type} input`)
     this.$form = document.querySelector(`.${type} form`)
-    this.itemsList = new ItemsList(type, recipes).itemsList()
+    this.itemsList = new ItemsList(type)
     this.topicSugestionButtons = []
   } 
 
@@ -33,14 +35,26 @@ class TopicCard extends Filter {
     this.$closeButton.addEventListener("click", function(){
       topicCard.closeTopicCard()
     })
-  }  
+  }
+  
+  displayTopicSugestionButtons(){
+    const itemsOfDisplayedRecipes = this.itemsList.itemsList(this.displayedRecipes)
+    this.topicSugestionButtons.forEach(topicSB =>{
+      if(itemsOfDisplayedRecipes.includes(topicSB._name)){
+        topicSB.isInDisplayedRecipes = true
+      } else{
+        topicSB.isInDisplayedRecipes = false
+      }
+      topicSB.displayTopicSugestion()
+    })
+  }
 
   $eventInput(){
     let topicCard = this
     this.$input.addEventListener("input", function(event){      
       const string = event.target.value    
       topicCard.topicSugestionButtons.forEach(function (topicSB){
-        if(topicCard.isInSentence(string, topicSB._name) && topicSB.tag.isDisplay === false){
+        if(topicCard.isInSentence(string, topicSB._name) && topicSB.tag.isDisplay === false && topicSB.isInDisplayedRecipes){
           topicSB.isDisplay = true
         } else{
           topicSB.isDisplay = false
@@ -53,7 +67,7 @@ class TopicCard extends Filter {
   
   init(){
     const topicCard = this
-    this.itemsList.forEach(function (item){
+    this.itemsList.itemsList(this._initRecipes).forEach(function (item){
       const topicSugestionButton = new TopicSugestionButton(item, topicCard._type)
       topicSugestionButton.init()
       topicCard.topicSugestionButtons.push(topicSugestionButton)

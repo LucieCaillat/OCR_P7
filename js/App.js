@@ -6,7 +6,8 @@ class App {
     this.applianceTopicCard = new TopicCard("appliance", data)
     this.ustensilTopicCard = new TopicCard("ustensil", data)
     this.topicCards = [this.ingredientTopicCard, this.applianceTopicCard, this.ustensilTopicCard]
-    this._recipes = data;
+    this._recipes = data
+    this.recipesToDisplay = data 
     
   }  
 
@@ -23,9 +24,17 @@ class App {
     tagsDisplay.forEach(topicSB => newData = topicSB.tag.filterTag.filterTag(newData) )
     return newData
   }
+  
+  displayTopicSugestionButtons(data){
+    this.topicCards.forEach(topicCard =>{
+      topicCard.displayedRecipes = data
+      topicCard.displayTopicSugestionButtons()
+    })
+  }
 
   displayRecipes(data){
     const tagFiltersData = this.tagFilters(data)
+    this.displayTopicSugestionButtons(tagFiltersData)
     this.$recipeGallery.innerHTML = ""
     tagFiltersData.forEach(recipe => {
       const Template = new RecipeCard(recipe)
@@ -34,15 +43,17 @@ class App {
   }
 
   $eventSearchBar(){
-    const app = this
-    const data = this._recipes    
-    app.searchBar.$input.addEventListener("input", function(event){
+    const _this = this
+
+    _this.searchBar.$input.addEventListener("input", function(event){
       const string = event.target.value    
       if(string.length >= 3){
-        app.displayRecipes(app.searchBar.filterSearchBar(string, data))
+        _this.recipesToDisplay = _this.searchBar.filterSearchBar(string, _this._recipes)       
       }else{
-        app.displayRecipes(data) 
+        _this.recipesToDisplay = _this._recipes
       }
+      _this.displayRecipes(_this.recipesToDisplay)
+      
     })    
   } 
 
@@ -55,25 +66,26 @@ class App {
     }
 
   $clickOnTopicSugestionButton(){
-    const app = this
-    this.topicCards.forEach(topicCard =>{
+    const _this = this
+
+    _this.topicCards.forEach(topicCard =>{
       topicCard.topicSugestionButtons.forEach(topicSB =>{
         topicSB.$topicSugestionButton.addEventListener("click", function(){
           topicSB.onClickTopicSugestionButton()
           topicCard.closeTopicCard()
-          app.displayRecipes(app._recipes)
+          _this.displayRecipes(_this.recipesToDisplay)
         })
       })
     })
   }
 
   $clickOnTag(){
-    const app = this
+    const _this = this
     this.topicCards.forEach(topicCard =>{
       topicCard.topicSugestionButtons.forEach(topicSB =>{
         topicSB.tag.$tag.addEventListener("click", function(){
           topicSB.deleteTag()
-          app.displayRecipes(app._recipes)
+          _this.displayRecipes(_this.recipesToDisplay)
         })
       })
     })

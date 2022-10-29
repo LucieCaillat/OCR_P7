@@ -1,7 +1,6 @@
 class ItemsList{
-  constructor(type, recipes){
+  constructor(type){
     this._type = type
-    this._recipes = recipes
   }
 
   formatList(array){
@@ -15,20 +14,20 @@ class ItemsList{
     return shortList.filter((item, index) => item !== shortList[index - 1] + "s" )
   }
 
-  itemsList(){
+  itemsList(recipes){
     if(this._type === "ingredient"){
-      let ingredients = this._recipes.map(recipe => recipe.ingredients.map( ingredient => ingredient.ingredient)).flat()
+      let ingredients = recipes.map(recipe => recipe.ingredients.map( ingredient => ingredient.ingredient)).flat()
       ingredients = this.formatList(ingredients)
       ingredients =  this.removeDuplicates(ingredients)
       return ingredients 
 
     } else if(this._type === "appliance"){
-      let appliances = this._recipes.map(recipe => recipe.appliance)
+      let appliances = recipes.map(recipe => recipe.appliance)
       appliances =  this.removeDuplicates(appliances)
       return appliances
 
     }else if(this._type === "ustensil"){
-      let ustensils = this._recipes.map(recipe => recipe.ustensils).flat()
+      let ustensils = recipes.map(recipe => recipe.ustensils).flat()
       ustensils = this.formatList(ustensils)
       ustensils =  this.removeDuplicates(ustensils)
       return ustensils 
