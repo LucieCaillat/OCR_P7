@@ -1,6 +1,7 @@
 class App {
   constructor(data) {
     this.$recipeGallery = document.querySelector('.recipe--gallery')
+    this.$noFindMessage = document.querySelector('.no-find-message')
     this.searchBar = new SearchBar();
     this.ingredientTopicCard = new TopicCard("ingredient", data)
     this.applianceTopicCard = new TopicCard("appliance", data)
@@ -9,8 +10,8 @@ class App {
     this._recipes = data
     this.recipesToDisplay = data 
     
-  }  
-
+  }
+  
   tagFilters(data){
     const ingredientTagsDisplay = this.ingredientTopicCard.topicSugestionButtons.filter(topicSB => topicSB.tag.isDisplay)
     
@@ -32,14 +33,21 @@ class App {
     })
   }
 
+
   displayRecipes(data){
     const tagFiltersData = this.tagFilters(data)
     this.displayTopicSugestionButtons(tagFiltersData)
     this.$recipeGallery.innerHTML = ""
-    tagFiltersData.forEach(recipe => {
-      const Template = new RecipeCard(recipe)
-      this.$recipeGallery.appendChild(Template.createRecipeCard())        
-    })    
+    if(tagFiltersData.length === 0){
+      this.$noFindMessage.style.display = "block"
+    }else{
+      this.$noFindMessage.style.display = "none"
+      tagFiltersData.forEach(recipe => {
+        const Template = new RecipeCard(recipe)
+        this.$recipeGallery.appendChild(Template.createRecipeCard())        
+      })
+    }
+        
   }
 
   $eventSearchBar(){

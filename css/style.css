@@ -157,7 +157,10 @@ header img{
     width: 46%;
   }
 }
-
+/*NO FIND Message*/
+.no-find-message{
+  font-size: 30px;
+}
 /*RECIPE-CARD*/
 .recipe--gallery{
   display: flex;
