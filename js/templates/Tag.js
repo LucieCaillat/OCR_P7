@@ -1,3 +1,5 @@
+/* global TagFilter*/
+/* eslint-disable no-unused-vars */
 class Tag {
   constructor(name, type) {
     this._name = name

@@ -1,3 +1,5 @@
+/* global Filter*/
+/* eslint-disable no-unused-vars */
 class SearchBar extends Filter{
   constructor(){
     super()

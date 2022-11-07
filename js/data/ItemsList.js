@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 class ItemsList{
   constructor(type){
     this._type = type

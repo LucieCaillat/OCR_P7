@@ -1,3 +1,5 @@
+/* global Filter*/
+/* eslint-disable no-unused-vars */
 class TagFilter extends Filter{
   constructor(name, type){
     super()

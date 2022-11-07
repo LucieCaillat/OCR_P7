@@ -1,3 +1,4 @@
+/* global SearchBar, TopicCard, RecipeCard, recipes*/
 class App {
   constructor(data) {
     this.$recipeGallery = document.querySelector('.recipe--gallery')

@@ -1,3 +1,5 @@
+/* global Filter, ItemsList, TopicSugestionButton*/
+/* eslint-disable no-unused-vars */
 class TopicCard extends Filter {
   constructor(type, initRecipes){
     super()

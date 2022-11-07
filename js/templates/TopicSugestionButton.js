@@ -1,3 +1,5 @@
+/* global Tag*/
+/* eslint-disable no-unused-vars */
 class TopicSugestionButton{
   constructor(name, type){
     this._name = name
