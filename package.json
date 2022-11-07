@@ -1,0 +1,23 @@
+{
+  "name": "ocr_p7",
+  "version": "1.0.0",
+  "description": "Implementation of the search functionality for the \"les petits plats\" website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./js/**"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucieCaillat/OCR_P7.git"
+  },
+  "author": "Lucie C",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LucieCaillat/OCR_P7/issues"
+  },
+  "homepage": "https://github.com/LucieCaillat/OCR_P7#readme",
+  "devDependencies": {
+    "eslint": "^8.27.0"
+  }
+}
