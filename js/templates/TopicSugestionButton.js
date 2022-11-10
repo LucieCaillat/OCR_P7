@@ -27,19 +27,10 @@ class TopicSugestionButton{
   deleteTag(){
     this.tag.deleteTag()
     this.isDisplay = true    
-  }
-
-  displayIfIsInDisplayedRecipes(){
-    if (this.isInDisplayedRecipes && this.tag.isDisplay === false){
-      this.isDisplay = true
-    }else{
-      this.isDisplay = false
-    }
-  }
+  } 
 
   displayTopicSugestion(){
-    this.displayIfIsInDisplayedRecipes()
-    if(this.isDisplay === true){
+    if(this.isDisplay && this.isInDisplayedRecipes){
       this.$topicSugestionButton.style.display = "block"
     } else{
       this.$topicSugestionButton.style.display = "none"

@@ -54,9 +54,9 @@ class TopicCard extends Filter {
   $eventInput(){
     let topicCard = this
     this.$input.addEventListener("input", function(event){      
-      const string = event.target.value    
+      const string = event.target.value   
       topicCard.topicSugestionButtons.forEach(function (topicSB){
-        if(topicCard.isInSentence(string, topicSB._name) && topicSB.tag.isDisplay === false && topicSB.isInDisplayedRecipes){
+        if(topicCard.isInSentence(string, topicSB._name) && topicSB.tag.isDisplay === false){
           topicSB.isDisplay = true
         } else{
           topicSB.isDisplay = false
