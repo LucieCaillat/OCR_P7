@@ -43,12 +43,13 @@ class App {
       this.$noFindMessage.style.display = "block"
     }else{
       this.$noFindMessage.style.display = "none"
-      tagFiltersData.forEach(recipe => {
+      // Replacement of forEach by a for loop
+      for (let i = 0; i < tagFiltersData.length; i++){
+        const recipe = tagFiltersData[i]  
         const Template = new RecipeCard(recipe)
-        this.$recipeGallery.appendChild(Template.createRecipeCard())        
-      })
-    }
-        
+        this.$recipeGallery.appendChild(Template.createRecipeCard())
+      }      
+    }        
   }
 
   $eventSearchBar(){
