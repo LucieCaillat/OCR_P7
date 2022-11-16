@@ -56,7 +56,9 @@ class App {
     const _this = this
 
     _this.searchBar.$input.addEventListener("input", function(event){
-      const startTime = Date.now()
+      
+      //const start = performance.now();
+
       const string = event.target.value    
       if(string.length >= 3){
         _this.recipesToDisplay = _this.searchBar.filterSearchBar(string, _this._recipes)       
@@ -64,10 +66,9 @@ class App {
         _this.recipesToDisplay = _this._recipes
       }
       _this.displayRecipes(_this.recipesToDisplay)
-      const endTime = Date.now()
-      const duration = endTime - startTime
-      console.log(`temps de depart: ${startTime} temps d'arrivée : ${endTime} soit une durée de ${duration} millisecondes`)
       
+      //const end = performance.now();
+      //console.log( `Duration : ${end - start} milliseconds`)
     })    
   } 
 
