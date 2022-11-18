@@ -52,17 +52,22 @@ class App {
   }
 
   $eventSearchBar(){
-    const _this = this
+    const _this = this    
 
     _this.searchBar.$input.addEventListener("input", function(event){
+      
+      //const start = performance.now();
+
       const string = event.target.value    
       if(string.length >= 3){
         _this.recipesToDisplay = _this.searchBar.filterSearchBar(string, _this._recipes)       
       }else{
         _this.recipesToDisplay = _this._recipes
-      }
+      }      
       _this.displayRecipes(_this.recipesToDisplay)
       
+      //const end = performance.now();
+      //console.log( `Duration : ${end - start} milliseconds`)
     })    
   } 
 
